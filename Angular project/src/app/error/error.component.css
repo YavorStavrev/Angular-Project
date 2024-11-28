@@ -1,0 +1,103 @@
+/* General Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background: #1c1c1c; /* Solid dark background for simplicity */
+  color: #ccc; /* Light grey text color */
+  display: flex;
+  flex-direction: column; /* Stack header, content, footer */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Main Content Section */
+main {
+  flex: 1; /* Allows the main content to take the remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 20px; /* Added space around the content */
+  box-sizing: border-box; /* Ensures padding doesn't mess up centering */
+}
+
+/* 404 Page Styling */
+.not-found-page {
+  text-align: center;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%; /* Ensures it fits within the viewport */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Aquamarine glow effect */
+  border-radius: 10px;
+  background: #1c1c1c; /* Matching inner background */
+  animation: fadeIn 1.2s ease-in-out;
+  margin: 0 auto; /* Centers the container */
+}
+
+/* Error Code Styling */
+.error-code {
+  font-size: 120px;
+  font-weight: bold;
+  color: aquamarine; /* Highlight color */
+  text-shadow: 
+    0 0 10px aquamarine, 
+    0 0 20px aquamarine, 
+    0 0 40px aquamarine; /* Intense glow effect */
+  margin-bottom: 20px;
+}
+
+/* Error Message Styling */
+.error-message {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ccc; /* Light grey */
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle shadow */
+}
+
+/* Error Description Styling */
+.error-description {
+  font-size: 18px;
+  color: #aaa; /* Muted grey */
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Home Button Styling */
+.home-button {
+  display: inline-block;
+  background-color: #2f2f2f; /* Dark grey button background */
+  color: aquamarine;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 5px;
+  border: 2px solid aquamarine;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: aquamarine; /* Aquamarine background on hover */
+  color: #1c1c1c; /* Dark text */
+  transform: scale(1.1); /* Slight enlargement */
+  box-shadow: 
+    0 0 10px aquamarine, 
+    0 0 20px aquamarine, 
+    0 0 30px aquamarine; /* Glow effect */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
