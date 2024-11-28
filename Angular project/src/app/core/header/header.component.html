@@ -1,13 +1,15 @@
 <header>
     <div class="left-nav">
         <img src="logo.png" alt="Logo" class="logo"> <!-- Correct path to logo -->
-        <a href="#"><button class="nav-btn">Home</button></a>
-        <a href="#"><button class="nav-btn">Catalog</button></a>
-        <a href="#"><button class="nav-btn">Create</button></a>
-        <a href="#"><button class="nav-btn">About</button></a>
+        <a href="/home"><button class="nav-btn">Home</button></a>
+        <a routerLink="/catalog"><button class="nav-btn">Catalog</button></a>
+        <a href="/create"><button class="nav-btn">Create</button></a>
+        <a href="/about"><button class="nav-btn">About</button></a>
     </div>
     <div class="right-nav">
-        <a href="#"><button class="nav-btn">Login</button></a>
-        <a href="#"><button class="nav-btn">Register</button></a>
+        @if (isLoggedIn) {
+        <a href="/login"><button class="nav-btn">Login</button></a>
+        <a href="/register"><button class="nav-btn">Register</button></a>
+        }
     </div>
 </header>

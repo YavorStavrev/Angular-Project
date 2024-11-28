@@ -5,26 +5,16 @@
     box-sizing: border-box;
 }
 
-/* Ensure the body and html elements take up the full height of the viewport */
+/* Ensure the body and html take full height */
 html, body {
-    height: 100%; /* Full height */
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Disable horizontal scrolling */
-    display: flex; /* Use flexbox to layout the content */
-    flex-direction: column; /* Stack content vertically */
+    height: 100%; /* Full height for the viewport */
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack elements vertically */
 }
 
-/* Main Container Styling */
-main {
-    flex: 1; /* Take up available space */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff; /* Optional, for testing visibility */
-    padding: 0;
+/* Main content should take up the remaining space */
+body {
+    flex: 1; /* Push footer to the bottom */
 }
 
 /* Footer Styling */
@@ -34,8 +24,11 @@ footer {
     color: white;
     padding: 20px;
     text-align: center;
-    position: relative;
-    margin: 0; /* Ensure no margin */
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: auto; /* Push footer to the bottom if content is smaller */
 }
 
 /* Footer Content */
