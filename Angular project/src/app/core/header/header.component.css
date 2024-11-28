@@ -1,0 +1,77 @@
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Full width of the screen */
+    height: 80px; /* Make the header bigger */
+    background-color: #000000; /* Full black background */
+    padding: 0 20px; /* Add horizontal padding for content spacing */
+    position: fixed; /* Fix header to top of screen */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Ensure header stays on top */
+}
+
+/* Left Navigation - Logo and Buttons */
+.left-nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 60px; /* Set logo width */
+    height: auto; /* Keep aspect ratio */
+    margin-right: 20px; /* Space between the logo and buttons */
+}
+
+/* Left navigation buttons */
+.left-nav .nav-btn {
+    background-color: transparent; /* No background */
+    border: none; /* Remove border */
+    color: #fff; /* White text */
+    font-size: 18px; /* Slightly bigger font size */
+    padding: 15px 25px; /* More padding for larger buttons */
+    margin: 0 15px; /* Add spacing between buttons */
+    cursor: pointer;
+    text-transform: uppercase; /* Optional: Make text uppercase */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Subtle glow around text */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.left-nav .nav-btn:hover {
+    color: #7FFFD4; /* Aquamarine text color on hover */
+    text-shadow: 0 0 10px #7FFFD4, 0 0 20px #7FFFD4; /* Glow effect in aquamarine */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* Right Navigation - Login/Register buttons */
+.right-nav {
+    display: flex;
+    align-items: center;
+}
+
+.right-nav .nav-btn {
+    background-color: transparent; /* No background */
+    border: none; /* Remove border */
+    color: #fff; /* White text */
+    font-size: 18px; /* Slightly bigger font size */
+    padding: 15px 25px; /* More padding for larger buttons */
+    margin: 0 15px; /* Add spacing between buttons */
+    cursor: pointer;
+    text-transform: uppercase; /* Optional: Make text uppercase */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Subtle glow around text */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.right-nav .nav-btn:hover {
+    color: #7FFFD4; /* Aquamarine text color on hover */
+    text-shadow: 0 0 10px #7FFFD4, 0 0 20px #7FFFD4; /* Glow effect in aquamarine */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+
+
+

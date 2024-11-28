@@ -1,0 +1,79 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure the body and html elements take up the full height of the viewport */
+html, body {
+    height: 100%; /* Full height */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    display: flex; /* Use flexbox to layout the content */
+    flex-direction: column; /* Stack content vertically */
+}
+
+/* Main Container Styling */
+main {
+    flex: 1; /* Take up available space */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Optional, for testing visibility */
+    padding: 0;
+}
+
+/* Footer Styling */
+footer {
+    width: 100%; /* Full width */
+    background-color: #000000; /* Black background */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin: 0; /* Ensure no margin */
+}
+
+/* Footer Content */
+.footer-content {
+    max-width: 100%; /* Ensure content spans full width */
+    margin: 0 auto;
+    padding: 0 20px; /* Padding inside the footer */
+}
+
+/* Footer Text */
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Social Links Section */
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Footer Links */
+.footer-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Subtle glow effect */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover Effect for Footer Links */
+.footer-link:hover {
+    color: #7FFFD4; /* Aquamarine color */
+    text-shadow: 0 0 10px #7FFFD4, 0 0 20px #7FFFD4; /* Glow effect in aquamarine */
+    transform: scale(1.1); /* Slightly enlarge the link */
+}
