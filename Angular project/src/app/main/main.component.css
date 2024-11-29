@@ -1,10 +1,4 @@
-/* Ensure the body and html elements take up the full height of the viewport and hide horizontal overflow */
-html, body {
-    height: 100%; /* Make sure the body and html fill the entire screen */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    overflow-x: hidden; /* Disable horizontal scrolling */
-}
+
 
 /* Main container that takes full screen */
 .main-container {
@@ -17,6 +11,8 @@ html, body {
     justify-content: center;
     align-items: center;
     color: white;
+    margin: auto;
+    margin-top: 80px;
     /* background-image: url('path-to-your-background-image.jpg'); Add your background image here */
 }
 

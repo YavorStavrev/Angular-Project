@@ -1,21 +1,10 @@
-/* General reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Ensure the body and html take full height */
-html, body {
-    height: 100%; /* Full height for the viewport */
-    display: flex; /* Enable Flexbox */
-    flex-direction: column; /* Stack elements vertically */
-}
-
-/* Main content should take up the remaining space */
-body {
-    flex: 1; /* Push footer to the bottom */
-}
 
 /* Footer Styling */
 footer {
@@ -25,10 +14,11 @@ footer {
     padding: 20px;
     text-align: center;
     flex-shrink: 0; /* Prevent footer from shrinking */
+    margin-top: auto; /* Push footer to the bottom */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: auto; /* Push footer to the bottom if content is smaller */
+    min-height: 50px;
 }
 
 /* Footer Content */

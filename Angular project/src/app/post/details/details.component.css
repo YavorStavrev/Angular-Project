@@ -1,0 +1,99 @@
+/* Overall page styling */
+.details-container {
+    background-color: #121212;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  /* Title styling */
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00ffee;  /* Aquamarine color */
+  }
+  
+  /* Exercises List Styling */
+  .exercises-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .exercise-card {
+    background-color: rgba(51, 51, 51, 0.9); /* Dark card background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .exercise-card h2 {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  
+  .exercise-card p {
+    font-size: 1rem;
+    color: #aaa;
+    margin: 10px 0;
+  }
+  
+  /* Button container styling */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  /* Common button styling */
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  /* Edit Button */
+  .edit-btn {
+    background-color: #00ffee;
+    color: #fff;
+  }
+  
+  .edit-btn:hover {
+    background-color: #00ffaa;
+  }
+  
+  /* Delete Button */
+  .delete-btn {
+    background-color: #ff5555;
+    color: #fff;
+  }
+  
+  .delete-btn:hover {
+    background-color: #ff3333;
+  }
+  
+  /* Like Button (for guests) */
+  .like-btn {
+    background-color: #008f8a;
+    color: #fff;
+  }
+  
+  .like-btn:hover {
+    background-color: #006f6f;
+  }
+  

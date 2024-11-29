@@ -1,0 +1,26 @@
+<h1>Fitness Plan</h1>
+<div class="form-container">
+  <!-- Fixed title inside the form-container -->
+  <div class="fixed-title">Fitness Plan</div>
+  
+  <div class="left-image"></div>
+  <form>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" placeholder="Enter title"><br><br>
+
+    <ng-container *ngFor="let exercise of exercises; let i = index">
+      <label for="exercise{{i}}">Exercise {{i + 1}}:</label>
+      <input type="text" id="exercise{{i}}" name="exercise{{i}}" placeholder="Enter exercise"><br><br>
+
+      <label for="series{{i}}">Sets and reps:</label>
+      <input type="text" id="series{{i}}" [(ngModel)]="series[i]" name="series{{i}}" placeholder="Enter sets and reps"><br><br>
+    </ng-container>
+
+    <!-- Description input field -->
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" placeholder="Enter a description"><br><br>
+
+    <button type="submit" class="post-btn">Post</button>
+  </form>
+  <div class="right-image"></div>
+</div>

@@ -1,28 +1,3 @@
-/* General Styling */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Arial', sans-serif;
-  background: #1c1c1c; /* Solid dark background for simplicity */
-  color: #ccc; /* Light grey text color */
-  display: flex;
-  flex-direction: column; /* Stack header, content, footer */
-  justify-content: flex-start;
-  align-items: center;
-}
-
-/* Main Content Section */
-main {
-  flex: 1; /* Allows the main content to take the remaining space */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 40px 20px; /* Added space around the content */
-  box-sizing: border-box; /* Ensures padding doesn't mess up centering */
-}
-
 /* 404 Page Styling */
 .not-found-page {
   text-align: center;
@@ -35,6 +10,8 @@ main {
   background: #1c1c1c; /* Matching inner background */
   animation: fadeIn 1.2s ease-in-out;
   margin: 0 auto; /* Centers the container */
+  margin-top: 100px;
+  margin-bottom: 20px;
 }
 
 /* Error Code Styling */
