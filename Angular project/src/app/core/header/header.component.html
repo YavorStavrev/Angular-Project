@@ -9,9 +9,12 @@
         <a routerLink="/about"><button class="nav-btn">About</button></a>
     </div>
     <div class="right-nav">
-        @if (isLoggedIn) {
+        @if (!isLoggedIn) {
         <a routerLink="/login"><button class="nav-btn">Login</button></a>
         <a routerLink="/register"><button class="nav-btn">Register</button></a>
+        }@else {
+            <a routerLink="/profile">{{ username }}'s profile</a>
+            <a (click)="logout()"><button class="nav-btn">Logout</button></a>
         }
     </div>
 </header>

@@ -7,11 +7,12 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { CreateComponent } from './post/create/create.component';
 import { DetailsComponent } from './post/details/details.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent, MainComponent, LoginComponent, RegisterComponent, CreateComponent, DetailsComponent],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent, MainComponent, LoginComponent, RegisterComponent, CreateComponent, DetailsComponent, ProfileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
