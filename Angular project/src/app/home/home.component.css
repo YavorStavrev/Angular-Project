@@ -1,0 +1,70 @@
+
+
+/* Main container that takes full screen */
+.main-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height of the viewport */
+    background-size: cover; /* Make the background cover the entire container */
+    background-position: center; /* Center the background image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: auto;
+    margin-top: 80px;
+    /* background-image: url('path-to-your-background-image.jpg'); Add your background image here */
+}
+
+/* Overlay for text and button visibility */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1; /* Ensure overlay is on top of the background */
+}
+
+/* Content inside the overlay */
+.content {
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+/* Brand Name */
+.brand-name {
+    font-size: 4rem; /* Large font size */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Uppercase text */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Subtle text shadow for visibility */
+}
+
+/* Tagline Styling */
+.tagline {
+    font-size: 1.5rem; /* Medium font size for the tagline */
+    margin-bottom: 30px;
+    font-style: italic; /* Italic text */
+}
+
+/* Button Styling */
+.btn-catalog {
+    padding: 15px 30px; /* Adequate padding */
+    background-color: #7FFFD4; /* Light aquamarine */
+    color: #000; /* Black text color */
+    font-size: 1.2rem; /* Medium font size */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    text-transform: uppercase; /* Uppercase text */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.btn-catalog:hover {
+    background-color: #5fd0a2; /* Slightly darker shade of aquamarine */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
