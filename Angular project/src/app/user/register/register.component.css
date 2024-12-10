@@ -1,135 +1,165 @@
 /* Page Centering */
-.register-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    background: #121212; /* Dark background for contrast */
-    margin: 0;
-    position: relative; /* Ensures centering works despite headers/footers */
-    z-index: 1;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background: #121212; /* Dark background for contrast */
+  margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* Overlay adjustment for background */
-.register-page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Pushes it behind the register container */
-    background: #121212; /* Dark background color */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #ffffff; /* Dark background color */
 }
 
-/* Register Container */
-.register-container {
-    width: 400px;
-    padding: 30px;
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    background: #333333; /* Dark grey background */
-    border-radius: 12px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8), 0px 0px 20px #00ffee; /* Soft shadows with aquamarine glow */
-    text-align: center;
-    animation: fadeIn 1.2s ease; /* Smooth fade-in effect */
+/* Registration Form */
+form.register {
+  width: 400px;
+  padding: 30px;
+  background: #333333; /* Dark grey background */
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8), 0px 0px 20px #00ffee; /* Soft shadows with aquamarine glow */
+  text-align: center;
+  animation: fadeIn 1.2s ease; /* Smooth fade-in effect */
 }
 
 /* Fade-in animation */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Heading Style */
 h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #00ffee; /* Aquamarine */
-    text-shadow: 0px 0px 8px rgba(0, 255, 255, 0.7); /* Glowing text effect */
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #00ffee; /* Aquamarine */
+  text-shadow: 0px 0px 8px rgba(0, 255, 255, 0.7); /* Glowing text effect */
 }
 
-/* Form Group */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-    margin-right: 23px;
+/* Fieldset Styling */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 16px;
-    color: #bfbfbf; /* Light grey */
+/* Field and Label */
+.field {
+  position: relative;
+  margin-bottom: 20px;
+  text-align: left;
+  margin-right: 20px;
 }
 
-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #555555; /* Grey border */
-    border-radius: 6px;
-    background: #222222; /* Darker grey input background */
-    color: white;
-    font-size: 16px;
-    transition: all 0.3s ease;
+.field-icon label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #bfbfbf; /* Light grey */
 }
 
-input:focus {
-    border-color: #00ffee; /* Aquamarine border */
-    box-shadow: 0px 0px 10px #00ffee; /* Glowing aquamarine focus effect */
-    outline: none;
-    transform: scale(1.05); /* Slightly enlarge on focus */
+.field-icon span {
+  color: #00ffee; /* Aquamarine */
 }
 
-/* Register Button */
-.register-button {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(90deg, #00ffaa, #00ffee); /* Aquamarine gradient */
-    border: none;
-    border-radius: 6px;
-    color: black; /* Contrast text */
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0px 0px 10px #00ffee; /* Glowing effect */
+/* Input Styling */
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #555555; /* Grey border */
+  border-radius: 6px;
+  background: #222222; /* Darker grey input background */
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-.register-button:hover {
-    background: linear-gradient(90deg, #00ffee, #00ffaa); /* Reverse gradient */
-    box-shadow: 0px 0px 20px #00ffee, 0px 0px 40px #00ffee; /* Stronger glow */
-    transform: translateY(-2px); /* Slight hover lift */
+input:focus,
+select:focus {
+  border-color: #00ffee; /* Aquamarine border */
+  box-shadow: 0px 0px 10px #00ffee; /* Glowing aquamarine focus effect */
+  outline: none;
+  transform: scale(1.05); /* Slightly enlarge on focus */
 }
 
-/* Login Link */
-.login-link {
-    margin-top: 20px; /* Adds space between register button and login link */
-    color: #bfbfbf; /* Light grey text for the login link */
+/* Input Error Styling */
+.input-error {
+  border-color: #ff5555; /* Red border for errors */
+  box-shadow: 0px 0px 10px #ff5555; /* Glowing red effect */
 }
 
-.login-link a {
-    color: #00ffee; /* Aquamarine color for the link */
-    text-decoration: none;
-    font-weight: bold;
+/* Error Message */
+.error {
+  color: #ff5555; /* Red error text */
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-.login-link a:hover {
-    text-decoration: underline; /* Underline on hover */
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #00ffaa, #00ffee); /* Aquamarine gradient */
+  border: none;
+  border-radius: 6px;
+  color: black; /* Contrast text */
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 10px #00ffee; /* Glowing effect */
+}
+
+button:disabled {
+  background: grey; /* Greyed-out button when disabled */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #00ffee, #00ffaa); /* Reverse gradient */
+  box-shadow: 0px 0px 20px #00ffee, 0px 0px 40px #00ffee; /* Stronger glow */
+  transform: translateY(-2px); /* Slight hover lift */
+}
+
+/* Links */
+.text-center {
+  margin-top: 20px;
+}
+
+.text-center a {
+  color: #00ffee; /* Aquamarine */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 500px) {
-    .register-container {
-        width: 90%; /* Adjust width for smaller screens */
-    }
+  form.register {
+    width: 90%; /* Adjust width for smaller screens */
+  }
 }

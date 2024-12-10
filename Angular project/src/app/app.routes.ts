@@ -1,31 +1,50 @@
 import { Routes } from '@angular/router';
-import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
+import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './error/error.component';
-import { CatalogComponent } from './post/catalog/catalog.component';
-import { MainComponent } from './main/main.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
-import { CreateComponent } from './post/create/create.component';
-import { DetailsComponent } from './post/details/details.component';
 import { ProfileComponent } from './user/profile/profile.component';
-
+import { AddThemeComponent } from './theme/add-theme/add-theme.component';
+import { MainComponent } from './main/main.component';
+import { CurrentThemeComponent } from './theme/current-theme/current-theme.component';
+import { AuthGuard } from './guards/auth.guard';
+import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
+import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'create', component: CreateComponent },
-    { path: 'details', component: DetailsComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: MainComponent },
-    {path: 'profile', component: ProfileComponent},
-    {
-        path: 'catalog',
-        children: [
-            {path: '', component: CatalogComponent},
-            {path: ':postId', component: DetailsComponent},
-        ]
-    },
-    { path: 'error', component: ErrorMsgComponent },
-    { path: '404', component: PageNotFoundComponent },
-    { path: '**', redirectTo: '/404' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  {path: 'about', component: AboutComponent},
+
+  //   Start - User routing
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  //   End - User routing
+
+  // Start - Theme routing
+  {
+    path: 'themes',
+    children: [
+      { path: '', component: MainComponent },
+      {
+        path: ':themeId',
+        component: CurrentThemeComponent,
+        //  canActivate: [AuthGuard],
+      },
+    ],
+  },
+  {
+    path: 'add-theme',
+    loadComponent: () =>
+      import('./theme/add-theme/add-theme.component').then(
+        (c) => c.AddThemeComponent
+      ),
+    canActivate: [AuthGuard],
+  },
+  // End - Theme routing
+
+  { path: 'error', component: ErrorMsgComponent },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/404' },
 ];

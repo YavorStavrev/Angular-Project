@@ -79,19 +79,29 @@
     background: linear-gradient(90deg, #00ffaa, #00ffee);
   }
   
-  .logout-button {
-    background: #ff4d4d;
-  }
+  
   
   .edit-button:hover {
     background: linear-gradient(90deg, #00ffee, #00ffaa);
     transform: translateY(-2px);
   }
-  
-  .logout-button:hover {
-    background: #ff1a1a;
-    transform: translateY(-2px);
+
+  .red-button {
+    background-color: #d9534f !important;
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.5em 1.5em;
   }
+
+  .green-button {
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.5em 1.5em;
+    margin-left: 10px;
+  }
+  
+  
   
   /* Responsive Design */
   @media (max-width: 500px) {

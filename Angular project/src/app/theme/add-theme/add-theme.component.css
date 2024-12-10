@@ -1,0 +1,194 @@
+.fixed-title {
+    position: absolute;  /* Position it relative to the form-container */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);  /* Center it horizontally */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ffee;  /* Aquamarine for the fixed title */
+    z-index: 2;  /* Ensure it is above the form */
+    background-color: rgba(51, 51, 51, 0.9);  /* Slight transparency to match the form */
+    padding: 10px 20px;
+    border-radius: 12px;
+    width: 78%; /* Full width to ensure it spans the entire form */
+    text-align: center;
+}
+
+/* Container for form with background image */
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    margin-top: 40px;
+    padding-top: 50px;  /* Adjust the space at the top to make room for the title */
+}
+
+/* Left and right images positioning */
+.left-image, .right-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    height: 100%;
+    background-color: #222222;
+    z-index: -1;
+}
+
+.left-image {
+    left: 0;
+}
+
+.right-image {
+    right: 0;
+}
+
+/* Form styling */
+form {
+    background-color: rgba(51, 51, 51, 0.9); /* Slight transparency for form background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 255, 255, 0.4); /* Glowing effect */
+    animation: fadeIn 1.2s ease;
+    width: 100%;
+    max-width: 450px;
+    z-index: 1;
+}
+
+/* General button styling for Add and Remove buttons */
+.action-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #00ffaa, #00ffee); /* Aquamarine gradient */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(0, 255, 255, 0.2);
+    margin-bottom: 10px;
+}
+
+/* Add button specific styling */
+.add-btn {
+    background: linear-gradient(90deg, #00ffaa, #00ffee); /* Aquamarine gradient */
+}
+
+/* Remove button specific styling */
+.remove-btn {
+    background: linear-gradient(90deg, #ff6666, #ff4d4d); /* Red gradient for remove button */
+}
+
+/* Hover effect for both Add and Remove buttons */
+.action-btn:hover {
+    background: linear-gradient(90deg, #00ffee, #00ffaa); /* Reverse gradient for add */
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 255, 255, 0.4);
+}
+
+/* Active effect for both Add and Remove buttons */
+.action-btn:active {
+    background-color: #006f6f;
+    transform: scale(1);
+    box-shadow: 0px 4px 8px rgba(0, 255, 255, 0.3);
+}
+
+/* Focus effect for both Add and Remove buttons */
+.action-btn:focus {
+    outline: none;
+}
+
+/* Remove button specific hover/active state */
+.remove-btn:hover {
+    background: linear-gradient(90deg, #ff4d4d, #ff6666); /* Reverse gradient for remove */
+}
+
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input fields styling */
+input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #555555; /* Grey border */
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #222222; /* Darker grey input background */
+    color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s ease, transform 0.3s;
+}
+
+/* Input focus effect */
+input:focus {
+    border-color: #00ffee; /* Aquamarine */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transform: scale(1.05); /* Slight zoom effect */
+    outline: none;
+}
+
+/* Button styling */
+#post-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #00ffaa, #00ffee); /* Aquamarine gradient */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(0, 255, 255, 0.2);
+}
+
+/* Button hover effect */
+#post-btn:hover {
+    background: linear-gradient(90deg, #00ffee, #00ffaa); /* Reverse gradient */
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 255, 255, 0.4);
+}
+
+/* Button active effect */
+#post-btn:active {
+    background-color: #006f6f;
+    transform: scale(1);
+    box-shadow: 0px 4px 8px rgba(0, 255, 255, 0.3);
+}
+
+/* Button focus */
+#post-btn:focus {
+    outline: none;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #bfbfbf; /* Light grey text for label */
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Input placeholder effect */
+input::placeholder {
+    color: #aaa;
+}
+
+input:focus::placeholder {
+    color: #00ffee; /* Aquamarine placeholder text when focused */
+}

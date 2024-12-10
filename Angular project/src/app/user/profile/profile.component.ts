@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   profileDetails: ProfileDetails = {
     username: '',
     email: '',
+    tel: '',
   };
 
   form = new FormGroup({
@@ -31,17 +32,19 @@ export class ProfileComponent implements OnInit {
       Validators.minLength(5),
     ]),
     email: new FormControl('', [Validators.required, emailValidator(DOMAINS)]),
+    tel: new FormControl(''),
   });
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    const { username, email} = this.userService.user!;
-    this.profileDetails = { username, email};
+    const { username, email, tel } = this.userService.user!;
+    this.profileDetails = { username, email, tel: tel! };
 
     this.form.setValue({
       username,
       email,
+      tel: tel!,
     });
   }
 
@@ -56,9 +59,9 @@ export class ProfileComponent implements OnInit {
 
     this.profileDetails = this.form.value as ProfileDetails;
 
-    const { username, email} = this.profileDetails;
+    const { username, email, tel } = this.profileDetails;
 
-    this.userService.updateProfile(username, email).subscribe(() => {
+    this.userService.updateProfile(username, email, tel).subscribe(() => {
       this.toggleEditMode();
     });
   }

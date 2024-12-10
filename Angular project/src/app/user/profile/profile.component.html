@@ -1,26 +1,86 @@
 <div class="profile-container">
-    <!-- Profile Photo Section -->
-    <div class="profile-photo-container">
-      <img class="profile-photo" src="avatar.jpg" alt="User Profile Photo" />
+  <!-- Profile Photo Section -->
+  <div class="profile-photo-container">
+    <img class="profile-photo" src="avatar.jpg" alt="User Profile Photo" />
+  </div>
+
+  <h2 class="profile-heading">User Profile</h2>
+  @if(!isEditMode){
+  <div class="profile-details">
+    <div class="profile-item">
+      <label>Username:</label>
+      <p>{{ profileDetails.username }}</p>
     </div>
-    
-    <h2 class="profile-heading">User Profile</h2>
-    
-    <div class="profile-details">
-      <div class="profile-item">
-        <label>Username</label>
-        <p>{{ profileDetails.username }}</p>
-      </div>
-      
-      <div class="profile-item">
-        <label>Email</label>
-        <p>{{ profileDetails.email }}</p>
-      </div>
+
+    <div class="profile-item">
+      <label>Email:</label>
+      <p>{{ profileDetails.email }}</p>
     </div>
-  
     <div class="profile-actions">
-      <button class="edit-button">Edit Profile</button>
-      <button class="logout-button">Log Out</button>
+      <button class="edit-button" (click)="toggleEditMode()">Edit Profile</button>
     </div>
   </div>
-  
+  }@else{
+  <form [formGroup]="form" (ngSubmit)="handleSaveProfile()">
+    <div class="profile-details">
+      <div class="profile-item">
+        <label>Username:</label>
+        <input
+            type="text"
+            name="username"
+            id="username"
+            value="username"
+            formControlName="username"
+          />
+      </div>
+
+      @if(form.get('username')?.touched){
+        <div>
+          @if(form.get('username')?.errors?.['required']){
+          <p class="error">Username is required!</p>
+          }
+          <!--  -->
+          @if(form.get('username')?.errors?.['minlength']){
+          <p class="error">Username must be at least 5 characters!</p>
+          }
+        </div>
+        }
+
+      <div class="profile-item">
+        <label>Email:</label>
+        <input
+            type="email"
+            name="email"
+            id="email"
+            value="email"
+            formControlName="email"
+          />
+      </div>
+
+      @if(form.get('email')?.touched){
+        <div>
+          @if(form.get('email')?.errors?.['required']){
+          <p class="error">Email is required!</p>
+          }
+          <!--  -->
+          @if(form.get('email')?.errors?.['emailValidator']){
+          <p class="error">Email is not valid!</p>
+          }
+        </div>
+        }
+
+      <div class="profile-actions">
+         <button class="red-button" (click)="onCancel($event)">Cancel</button>
+          <button
+            class="green-button"
+            [disabled]="form.invalid"
+            [style]="{ backgroundColor: form.invalid ? 'grey' : '#5cb85c' }"
+          >
+            Save
+          </button>
+      </div>
+    </div>
+  </form>
+  }
+
+</div>

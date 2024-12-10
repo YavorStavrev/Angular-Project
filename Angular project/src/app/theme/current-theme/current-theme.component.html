@@ -1,0 +1,43 @@
+<div class="details-container">
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">&#8592; Back</button>
+    <h1>Fitness Plan Exercises</h1>
+  </div>
+
+  <div class="exercises-list">
+    <div *ngFor="let workout of workoutArray; let i = index" class="exercise-card">
+      <h2>Exercise: {{ workout.exercise }}</h2>
+      <p>Sets: {{ workout.sets }}</p>
+
+      <div *ngIf="isLoggedIn">
+        <div *ngIf="isEditMode && selectedWorkoutIndex === i">
+          <form [formGroup]="workoutForm" (ngSubmit)="handleSaveWorkout(i)">
+            <label>Exercise {{ i + 1 }}</label>
+            <input
+              type="text"
+              formControlName="exercise"
+              placeholder="Enter exercise name"
+              [value]="workout.exercise"
+            />
+            <label>Sets</label>
+            <input
+              type="text"
+              formControlName="sets"
+              placeholder="Enter sets"
+              [value]="workout.sets"
+            />
+            <button type="submit" class="save-btn">Save</button>
+            <button class="cancel-btn" (click)="onCancel($event)">Cancel</button>
+          </form>
+        </div>
+
+        <div *ngIf="!isEditMode || selectedWorkoutIndex !== i">
+          <div class="button-container">
+            <button class="edit-btn" (click)="toggleEditMode(i)">Edit</button>
+            <button class="delete-btn" (click)="handleDeleteWorkout(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

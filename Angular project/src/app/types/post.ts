@@ -1,14 +1,14 @@
 
-import { User } from "./user";
-
+import { User } from './user';
+import { Theme } from './theme';
 
 export interface Post {
-    name: string;
-    likes: string[];
-    _id: string;
-    description: string;
-    userId: User;
-    created_at: string;
-    updatedAt: string;
-    __v: number;
+  likes: string[];
+  _id: string;
+  text: string;
+  themeId: Theme;
+  created_at: string;
+  updatedAt: string;
+  userId: User;
+  __v: number;
 }

@@ -2,19 +2,20 @@
     <div class="left-nav">
         <img src="logo.png" alt="Logo" class="logo"> <!-- Correct path to logo -->
         <a routerLink="/home"><button class="nav-btn">Home</button></a>
-        <a routerLink="/catalog"><button class="nav-btn">Catalog</button></a>
-        @if(isLoggedIn){
-        <a routerLink="/create"><button class="nav-btn">Create</button></a>
-        }
+        <a routerLink="/themes"><button class="nav-btn">Catalog</button></a>
+@if(isLoggedIn){
+        <a routerLink="/add-theme"><button class="nav-btn">Create</button></a>
+}
         <a routerLink="/about"><button class="nav-btn">About</button></a>
     </div>
     <div class="right-nav">
-        @if (!isLoggedIn) {
+        @if (isLoggedIn) {
+        <a class="nav-btn" routerLink="/profile">{{ username }}'s profile</a>
+        <a (click)="logout()"><button class="nav-btn">Logout</button></a>
+
+        }@else {
         <a routerLink="/login"><button class="nav-btn">Login</button></a>
         <a routerLink="/register"><button class="nav-btn">Register</button></a>
-        }@else {
-            <a routerLink="/profile">{{ username }}'s profile</a>
-            <a (click)="logout()"><button class="nav-btn">Logout</button></a>
         }
     </div>
 </header>

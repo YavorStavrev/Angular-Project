@@ -1,26 +1,4 @@
-/* Page Centering */
-.login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    background: #121212; /* Dark background for contrast */
-    margin: 0;
-    position: relative; /* Ensures centering works despite headers/footers */
-    z-index: 1;
-}
 
-/* Overlay adjustment for background */
-.login-page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Pushes it behind the login container */
-    background: #121212; /* Dark background color */
-}
 
 /* Login Container */
 .login-container {
@@ -35,6 +13,7 @@
     text-align: center;
     animation: fadeIn 1.2s ease; /* Smooth fade-in effect */
 }
+
 
 /* Fade-in animation */
 @keyframes fadeIn {

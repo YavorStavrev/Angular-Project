@@ -8,7 +8,7 @@ import { BehaviorSubject, Subscription, tap } from 'rxjs';
 })
 export class UserService implements OnDestroy {
   private user$$ = new BehaviorSubject<UserForAuth | null>(null);
-  private user$ = this.user$$.asObservable();
+  public user$ = this.user$$.asObservable();
 
   USER_KEY = '[user]';
   user: UserForAuth | null = null;
@@ -24,15 +24,16 @@ export class UserService implements OnDestroy {
     });
   }
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     return this.http
-      .post<UserForAuth>('/api/login', { username, password })
+      .post<UserForAuth>('/api/login', { email, password })
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
   register(
     username: string,
     email: string,
+    tel: string,
     password: string,
     rePassword: string
   ) {
@@ -40,6 +41,7 @@ export class UserService implements OnDestroy {
       .post<UserForAuth>('/api/register', {
         username,
         email,
+        tel,
         password,
         rePassword,
       })
@@ -58,11 +60,12 @@ export class UserService implements OnDestroy {
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  updateProfile(username: string, email: string, ) {
+  updateProfile(username: string, email: string, tel?: string) {
     return this.http
       .put<UserForAuth>(`/api/users/profile`, {
         username,
         email,
+        tel,
       })
       .pipe(tap((user) => this.user$$.next(user)));
   }

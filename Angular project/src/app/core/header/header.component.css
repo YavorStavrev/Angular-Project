@@ -53,6 +53,7 @@ header {
 }
 
 .right-nav .nav-btn {
+    text-decoration: none;
     background-color: transparent; /* No background */
     border: none; /* Remove border */
     color: #fff; /* White text */

@@ -3,6 +3,10 @@ import { User } from './user';
 
 export interface Theme {
   subscribers: string[];
+  workout: {
+    exercise: string[];
+    sets: string[];
+  };
   posts: Post[];
   _id: string;
   themeName: string;

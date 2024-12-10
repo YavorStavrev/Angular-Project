@@ -1,0 +1,87 @@
+<h1>Fitness Plan</h1>
+<div class="form-container">
+  <div class="fixed-title">Fitness Plan</div>
+
+  <div class="left-image"></div>
+  <form #form="ngForm" (ngSubmit)="addTheme(form)">
+    <label for="themeName">Title:</label>
+    <input
+      type="text"
+      name="themeName"
+      id="themeName"
+      ngModel
+      #inputThemeName="ngModel"
+      required
+      minlength="5"
+    />
+    <div *ngIf="inputThemeName?.touched">
+      <div *ngIf="inputThemeName?.errors?.['required']">
+        <p class="error">Theme name is required.</p>
+      </div>
+      <div *ngIf="inputThemeName?.errors?.['minlength']">
+        <p class="error">Theme name must be at least 5 characters long.</p>
+      </div>
+    </div>
+
+    <!-- Loop through the workout array to generate inputs for exercises and sets -->
+    <div *ngFor="let exercise of workout; let index = index">
+      <label for="workoutExercise{{ index }}">Exercise {{ index + 1 }}:</label>
+      <input
+        type="text"
+        id="workoutExercise{{ index }}"
+        name="workout[{{ index }}].exercise"
+        [(ngModel)]="exercise.exercise"
+        placeholder="Enter exercise"
+      />
+
+      <label for="workoutSets{{ index }}">Sets and reps:</label>
+      <input
+        type="text"
+        id="workoutSets{{ index }}"
+        name="workout[{{ index }}].sets"
+        [(ngModel)]="exercise.sets"
+        placeholder="Enter sets and reps"
+      />
+
+      <!-- Button to remove an exercise input pair -->
+      <button type="button" (click)="removeExercise(index)" class="action-btn remove-btn">Remove Exercise</button>
+    </div>
+
+    <!-- Button to add a new exercise set input pair -->
+    <button type="button" (click)="addExercise()" class="action-btn add-btn">Add Exercise</button>
+
+    <!-- Description input field -->
+    <label for="postText">Description:</label>
+    <input
+      type="text"
+      name="postText"
+      id="postText"
+      rows="8"
+      class="height"
+      ngModel
+      #inputPostText="ngModel"
+      required
+      minlength="10"
+    />
+
+    <div *ngIf="inputPostText?.touched">
+      <div *ngIf="inputPostText?.errors?.['required']">
+        <p class="error">The field with your post is required.</p>
+      </div>
+      <div *ngIf="inputPostText?.errors?.['minlength']">
+        <p class="error">Post must be at least 10 characters long.</p>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      id="post-btn"
+      class="public"
+      [disabled]="form.invalid"
+      [style]="{ backgroundColor: form.invalid ? 'grey' : '#234465' }"
+    >
+      Post
+    </button>
+  </form>
+  <div class="right-image"></div>
+</div>

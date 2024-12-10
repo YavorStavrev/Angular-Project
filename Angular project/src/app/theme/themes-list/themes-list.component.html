@@ -1,0 +1,31 @@
+@if (isLoading) {
+  <app-loader />
+  }@else {
+
+<div class="page-container">
+
+
+  <!-- Main Catalog Section -->
+  <main class="catalog">
+    <h1 class="catalog-title">Our Product Catalog</h1>
+    <div class="catalog-grid">
+      <!-- Product Card -->
+      
+      @for (theme of themes; track $index) {
+      
+      <div class="catalog-item">
+
+        <h2 class="product-title">{{ theme.themeName }}</h2>
+        <!-- <p class="product-description">
+          {{post.text}}
+        </p> -->
+        <button [routerLink]="theme._id" class="product-button">View Details</button>
+      </div>
+      }
+      
+    </div>
+  </main>
+
+
+</div>
+  }
