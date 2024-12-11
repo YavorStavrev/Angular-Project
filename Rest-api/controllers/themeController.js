@@ -1,6 +1,35 @@
 const { themeModel } = require('../models');
 const { newPost } = require('./postController')
 
+function likeTheme(req, res, next) {
+    const { themeId } = req.params;
+    const { _id: userId } = req.user;
+
+    console.log('like');
+
+    themeModel.findById(themeId)
+        .then(theme => {
+            const hasLiked = theme.likes.includes(userId);
+
+            // If the user has liked it, remove the like, otherwise add the like
+            const update = hasLiked
+                ? { $pull: { likes: userId } }
+                : { $addToSet: { likes: userId } };
+
+            themeModel.updateOne({ _id: themeId }, update, { new: true })
+                .then(updatedTheme => {
+                    res.status(200).json({
+                        message: hasLiked ? 'Like removed' : 'Liked successfully',
+                        hasLiked: !hasLiked  // Return whether the user has liked the theme or not
+                    });
+                })
+                .catch(next);
+        })
+        .catch(next);
+}
+
+
+
 function getThemes(req, res, next) {
     themeModel.find()
         .populate('userId')
@@ -107,5 +136,6 @@ module.exports = {
     getTheme,
     subscribe,
     deleteTheme,
-    updateWorkout
+    updateWorkout,
+    likeTheme
 }

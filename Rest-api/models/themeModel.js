@@ -18,13 +18,17 @@ const themeSchema = new mongoose.Schema({
         type: ObjectId,
         ref: "Post"
     }],
-    workout: [{  // New field to store the workout details
+    likes: [{
+        type: ObjectId,
+    
+    }],
+    workout: [{  
         exercise: {
-            type: String, // The name of the exercise
+            type: String, 
             required: true
         },
         sets: {
-            type: String, // The sets and reps for the exercise
+            type: String, 
             required: true
         }
     }],

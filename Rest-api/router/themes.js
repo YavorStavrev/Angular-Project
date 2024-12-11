@@ -3,7 +3,7 @@ const router = express.Router();
 const { auth } = require('../utils');
 const { themeController, postController } = require('../controllers');
 
-// middleware that is specific to this router
+
 
 router.get('/', themeController.getThemes);
 router.post('/', auth(), themeController.createTheme);
@@ -14,9 +14,10 @@ router.put('/:themeId', auth(), themeController.subscribe);
 router.put('/:themeId/posts/:postId', auth(), postController.editPost);
 router.delete('/:themeId/posts/:postId', auth(), postController.deletePost);
 router.delete('/:themeId', auth(), themeController.deleteTheme);
+router.post('/:themeId/like', auth(), themeController.likeTheme);
 router.put('/:themeId/workout', auth(), themeController.updateWorkout);
 
 
-// router.get('/my-trips/:id/reservations', auth(), themeController.getReservations);
+
 
 module.exports = router
