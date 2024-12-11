@@ -2,7 +2,8 @@ import { Post } from './post';
 import { User } from './user';
 
 export interface Theme {
-  subscribers: string[];
+  likes: string[];
+  likesCount: number;
   workout: {
     exercise: string[];
     sets: string[];
@@ -10,7 +11,8 @@ export interface Theme {
   posts: Post[];
   _id: string;
   themeName: string;
-  userId: User;
+  description: string;
+  userId: string;
   created_at: string;
   updatedAt: string;
   __v: number;

@@ -1,31 +1,43 @@
 @if (isLoading) {
-  <app-loader />
-  }@else {
+<app-loader />
+}@else {
 
 <div class="page-container">
 
 
-  <!-- Main Catalog Section -->
+
   <main class="catalog">
     <h1 class="catalog-title">Our Product Catalog</h1>
     <div class="catalog-grid">
-      <!-- Product Card -->
-      
-      @for (theme of themes; track $index) {
-      
-      <div class="catalog-item">
 
-        <h2 class="product-title">{{ theme.themeName }}</h2>
-        <!-- <p class="product-description">
-          {{post.text}}
-        </p> -->
-        <button [routerLink]="theme._id" class="product-button">View Details</button>
-      </div>
-      }
+
+
+@for (theme of themes; track $index) {
+  <div class="catalog-item">
+
+    <p class="likes-count">Likes: {{ theme.likesCount }}</p>
+
+
+    <h2 class="product-title">{{ theme.themeName }}</h2>
+
+
+    <p class="product-description">
+      {{ theme.created_at | elapsedTime }}
+    </p>
+    <p class="product-description">
+      {{ theme.description }}
+    </p>
+    <button [routerLink]="theme._id" class="product-button">View Details</button>
+  </div>
+}
+
       
+      
+      
+
     </div>
   </main>
 
 
 </div>
-  }
+}

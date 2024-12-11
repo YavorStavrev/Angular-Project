@@ -1,10 +1,10 @@
-<!-- homepage -->
+
 <div class="container">
   <form class="register" [formGroup]="form" (ngSubmit)="register()">
     <fieldset>
       <h2>Registration Form</h2>
 
-      <!-- username -->
+    
       <p class="field field-icon">
         <label for="username">
           <span><i class="fas fa-user"></i></span>
@@ -28,14 +28,14 @@
         @if(form.get('username')?.errors?.['required']){
         <p class="error">Username is required!</p>
         }
-        <!--  -->
+
         @if(form.get('username')?.errors?.['minlength']){
         <p class="error">Username must be at least 5 characters!</p>
         }
       </div>
       }
 
-      <!-- email -->
+   
       <p class="field field-icon">
         <label for="email"
           ><span><i class="fas fa-envelope"></i></span
@@ -57,13 +57,13 @@
         @if(form.get('email')?.errors?.['required']){
         <p class="error">Email is required!</p>
         }
-        <!--  -->
+
         @if(form.get('email')?.errors?.['emailValidator']){
         <p class="error">Email is not valid!</p>
         }
       </div>
       }
-      <!-- telephone -->
+     
       <p class="field field-icon">
         <label for="tel"
           ><span><i class="fas fa-phone"></i></span
@@ -81,7 +81,7 @@
       </p>
 
       <div formGroupName="passGroup">
-        <!-- password -->
+       
         <p class="field field-icon">
           <label for="password"
             ><span><i class="fas fa-lock"></i></span
@@ -106,14 +106,14 @@
           @if(passGroup?.get('password')?.errors?.['required']){
           <p class="error">Password is required!</p>
           }
-          <!--  -->
+        
           @if(passGroup?.get('password')?.errors?.['minlength']){
           <p class="error">Password must be at least 5 characters!</p>
           }
         </div>
         }
 
-        <!-- rePassword -->
+
         <p class="field field-icon">
           <label for="rePassword"
             ><span><i class="fas fa-lock"></i></span

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from './types/post';
 import { Theme } from './types/theme';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -32,14 +34,20 @@ export class ApiService {
   }
   
 
-  // CRUD operations
-  // update -> http.put
-  // updateTheme(themeId: string, themeName: string, postText: string) {
-  //   const payload = { themeName, postText };
-  //   return this.http.put<Theme>(`/api/themes/${themeId}`, payload);
-  // }
+  
 
-// In your ApiService
+  deleteTheme(themeId: string): Observable<void> {
+    return this.http.delete<void>(`/api/themes/${themeId}`);
+  }
+
+  likeTheme(themeId: string): Observable<Theme> {
+    return this.http.post<Theme>(`/api/themes/${themeId}/like`, {});
+  }
+  
+  
+  
+
+
 
 updateThemeWorkout(themeId: string, updatedWorkout: { exercise: string; sets: string }[]) {
   const payload = { workout: updatedWorkout };
@@ -55,12 +63,6 @@ updateThemeWorkout(themeId: string, updatedWorkout: { exercise: string; sets: st
       payload
     );
   }
-
-//   // delete -> http.delete theme ID
-//   deleteTheme(themeId: string) {
-//     return this.http.delete(`/api/${themeId}`);
-//   }
-
   
   
 }

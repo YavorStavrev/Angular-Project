@@ -14,16 +14,22 @@
       required
       minlength="5"
     />
-    <div *ngIf="inputThemeName?.touched">
-      <div *ngIf="inputThemeName?.errors?.['required']">
+    @if(inputThemeName?.touched){
+    <div>
+      @if(inputThemeName?.errors?.['required']){
+      <div>
         <p class="error">Theme name is required.</p>
       </div>
-      <div *ngIf="inputThemeName?.errors?.['minlength']">
+    }
+    @if(inputThemeName?.errors?.['minlength']){
+      <div >
         <p class="error">Theme name must be at least 5 characters long.</p>
       </div>
+    }
     </div>
+  }
 
-    <!-- Loop through the workout array to generate inputs for exercises and sets -->
+    
     <div *ngFor="let exercise of workout; let index = index">
       <label for="workoutExercise{{ index }}">Exercise {{ index + 1 }}:</label>
       <input
@@ -43,14 +49,14 @@
         placeholder="Enter sets and reps"
       />
 
-      <!-- Button to remove an exercise input pair -->
+      
       <button type="button" (click)="removeExercise(index)" class="action-btn remove-btn">Remove Exercise</button>
     </div>
-
-    <!-- Button to add a new exercise set input pair -->
+  
+    
     <button type="button" (click)="addExercise()" class="action-btn add-btn">Add Exercise</button>
 
-    <!-- Description input field -->
+  
     <label for="postText">Description:</label>
     <input
       type="text"
@@ -63,15 +69,20 @@
       required
       minlength="10"
     />
-
-    <div *ngIf="inputPostText?.touched">
-      <div *ngIf="inputPostText?.errors?.['required']">
+@if(inputPostText?.touched){
+    <div>
+      @if(inputPostText?.errors?.['required']){
+      <div>
         <p class="error">The field with your post is required.</p>
       </div>
-      <div *ngIf="inputPostText?.errors?.['minlength']">
+    }
+    @if(inputPostText?.errors?.['minlength']){
+      <div>
         <p class="error">Post must be at least 10 characters long.</p>
       </div>
+    }
     </div>
+  }
 
     <button
       type="submit"

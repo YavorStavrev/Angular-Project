@@ -3,41 +3,55 @@
     <button class="back-btn" (click)="goBack()">&#8592; Back</button>
     <h1>Fitness Plan Exercises</h1>
   </div>
+  
 
   <div class="exercises-list">
     <div *ngFor="let workout of workoutArray; let i = index" class="exercise-card">
       <h2>Exercise: {{ workout.exercise }}</h2>
       <p>Sets: {{ workout.sets }}</p>
-
-      <div *ngIf="isLoggedIn">
-        <div *ngIf="isEditMode && selectedWorkoutIndex === i">
+      @if(isLoggedIn && isOwner){
+      <div>
+        @if(isEditMode && selectedWorkoutIndex === i){
+        <div>
           <form [formGroup]="workoutForm" (ngSubmit)="handleSaveWorkout(i)">
             <label>Exercise {{ i + 1 }}</label>
-            <input
-              type="text"
-              formControlName="exercise"
-              placeholder="Enter exercise name"
-              [value]="workout.exercise"
-            />
+            <input type="text" formControlName="exercise" placeholder="Enter exercise name"
+              [value]="workout.exercise" />
             <label>Sets</label>
-            <input
-              type="text"
-              formControlName="sets"
-              placeholder="Enter sets"
-              [value]="workout.sets"
-            />
+            <input type="text" formControlName="sets" placeholder="Enter sets" [value]="workout.sets" />
             <button type="submit" class="save-btn">Save</button>
             <button class="cancel-btn" (click)="onCancel($event)">Cancel</button>
           </form>
         </div>
-
-        <div *ngIf="!isEditMode || selectedWorkoutIndex !== i">
+        }
+        @if(!isEditMode || selectedWorkoutIndex !== i){
+        <div>
           <div class="button-container">
             <button class="edit-btn" (click)="toggleEditMode(i)">Edit</button>
             <button class="delete-btn" (click)="handleDeleteWorkout(i)">Delete</button>
           </div>
         </div>
+        }
       </div>
+      }
+      @if(isLoggedIn && !isOwner){
+      <div>
+        @if(!hasLikedPost()){
+        <div>
+          <div class="like-container">
+            <button id="likeButton" class="like-btn" (click)="handleLikePost()">Like</button>
+          </div>
+        </div>
+      }
+      @if(hasLikedPost()){
+        <div>
+          <span id="likeStatus">Already Liked</span>
+        </div>
+      }
+      </div>
+    }
+      
+      
     </div>
   </div>
 </div>

@@ -1,52 +1,52 @@
-/* 404 Page Styling */
+
 .not-found-page {
   text-align: center;
   padding: 30px;
   max-width: 600px;
-  width: 100%; /* Ensures it fits within the viewport */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Aquamarine glow effect */
+  width: 100%; 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); 
   border-radius: 10px;
-  background: #1c1c1c; /* Matching inner background */
+  background: #1c1c1c; 
   animation: fadeIn 1.2s ease-in-out;
-  margin: 0 auto; /* Centers the container */
+  margin: 0 auto; 
   margin-top: 100px;
   margin-bottom: 20px;
 }
 
-/* Error Code Styling */
+
 .error-code {
   font-size: 120px;
   font-weight: bold;
-  color: aquamarine; /* Highlight color */
+  color: aquamarine; 
   text-shadow: 
     0 0 10px aquamarine, 
     0 0 20px aquamarine, 
-    0 0 40px aquamarine; /* Intense glow effect */
+    0 0 40px aquamarine; 
   margin-bottom: 20px;
 }
 
-/* Error Message Styling */
+
 .error-message {
   font-size: 28px;
   font-weight: bold;
-  color: #ccc; /* Light grey */
+  color: #ccc; 
   margin-bottom: 15px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle shadow */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); 
 }
 
-/* Error Description Styling */
+
 .error-description {
   font-size: 18px;
-  color: #aaa; /* Muted grey */
+  color: #aaa; 
   margin-bottom: 30px;
   line-height: 1.5;
 }
 
-/* Home Button Styling */
+
 .home-button {
   display: inline-block;
-  background-color: #2f2f2f; /* Dark grey button background */
+  background-color: #2f2f2f; 
   color: aquamarine;
   text-decoration: none;
   font-size: 16px;
@@ -58,16 +58,15 @@
 }
 
 .home-button:hover {
-  background-color: aquamarine; /* Aquamarine background on hover */
-  color: #1c1c1c; /* Dark text */
-  transform: scale(1.1); /* Slight enlargement */
+  background-color: aquamarine; 
+  color: #1c1c1c; 
+  transform: scale(1.1); 
   box-shadow: 
     0 0 10px aquamarine, 
     0 0 20px aquamarine, 
-    0 0 30px aquamarine; /* Glow effect */
+    0 0 30px aquamarine; 
 }
 
-/* Fade-in Animation */
 @keyframes fadeIn {
   0% {
     opacity: 0;

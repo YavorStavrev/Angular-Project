@@ -24,7 +24,7 @@
           @if(inputEmail?.errors?.['required']){
           <p class="error">Email is required!</p>
           }
-          <!--  -->
+
           @if(inputEmail?.errors?.['emailValidator']){
           <p class="error">Email is not valid!</p>
           }
@@ -54,7 +54,7 @@
           @if(inputPassword?.errors?.['required']){
           <p class="error">Password is required!</p>
           }
-          <!--  -->
+
           @if(inputPassword?.errors?.['minlength']){
           <p class="error">Password must be at least 5 characters!</p>
           }
@@ -64,7 +64,7 @@
       [style]="{ backgroundColor: form.invalid ? 'grey' : '#234465' }" class="login-button">Login</button>
     </form>
     
-    <!-- Space and Register Button -->
+
     <div class="register-link">
         <p>Don't have an account? <a routerLink="/register" class="register-button">Register</a></p>
     </div>

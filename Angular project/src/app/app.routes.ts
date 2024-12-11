@@ -4,7 +4,6 @@ import { PageNotFoundComponent } from './error/error.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { ProfileComponent } from './user/profile/profile.component';
-import { AddThemeComponent } from './theme/add-theme/add-theme.component';
 import { MainComponent } from './main/main.component';
 import { CurrentThemeComponent } from './theme/current-theme/current-theme.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -16,13 +15,13 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {path: 'about', component: AboutComponent},
 
-  //   Start - User routing
+ 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  //   End - User routing
+ 
 
-  // Start - Theme routing
+  
   {
     path: 'themes',
     children: [
@@ -30,7 +29,7 @@ export const routes: Routes = [
       {
         path: ':themeId',
         component: CurrentThemeComponent,
-        //  canActivate: [AuthGuard],
+        
       },
     ],
   },
@@ -42,7 +41,7 @@ export const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
-  // End - Theme routing
+ 
 
   { path: 'error', component: ErrorMsgComponent },
   { path: '404', component: PageNotFoundComponent },

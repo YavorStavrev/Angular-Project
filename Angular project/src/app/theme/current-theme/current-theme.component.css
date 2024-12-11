@@ -1,4 +1,4 @@
-/* Overall page styling */
+
 .details-container {
   background-color: #121212;
   color: #fff;
@@ -9,7 +9,7 @@
   margin-top: 80px;
 }
 
-/* Styling for the back button next to the title */
+
 .header {
   display: flex;
   align-items: center;
@@ -18,7 +18,7 @@
 }
 
 .back-btn {
-  background-color: #00ffee; /* Light aquamarine background */
+  background-color: #00ffee; 
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -38,17 +38,17 @@ h1 {
   color: #00ffee;
 }
 
-/* Other button styling remains the same */
 
-/* Title styling */
+
+
 h1 {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 20px;
-  color: #00ffee;  /* Aquamarine color */
+  color: #00ffee;  
 }
 
-/* Exercises List Styling */
+
 .exercises-list {
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ h1 {
 }
 
 .exercise-card {
-  background-color: rgba(51, 51, 51, 0.9); /* Dark card background */
+  background-color: rgba(51, 51, 51, 0.9); 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -73,15 +73,15 @@ h1 {
   margin: 10px 0;
 }
 
-/* Button container styling */
+
 .button-container {
   display: flex;
-  justify-content: flex-start; /* Align buttons to the left */
-  gap: 10px; /* Add space between buttons */
+  justify-content: flex-start; 
+  gap: 10px; 
   margin-top: 10px;
 }
 
-/* Common button styling */
+
 button {
   padding: 10px 20px;
   border: none;
@@ -91,7 +91,7 @@ button {
   transition: transform 0.3s ease, box-shadow 0.3s;
 }
 
-/* Hover effects */
+
 button:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
@@ -101,7 +101,7 @@ button:focus {
   outline: none;
 }
 
-/* Edit Button */
+
 .edit-btn {
   background-color: #00ffee;
   color: #fff;
@@ -111,7 +111,7 @@ button:focus {
   background-color: #00ffaa;
 }
 
-/* Delete Button */
+
 .delete-btn {
   background-color: #ff5555;
   color: #fff;
@@ -121,62 +121,72 @@ button:focus {
   background-color: #ff3333;
 }
 
-/* Save Button */
+
 .save-btn {
-  background-color: #4CAF50; /* Green color */
+  background-color: #4CAF50; 
   color: #fff;
 }
 
 .save-btn:hover {
-  background-color: #45a049; /* Darker green */
+  background-color: #45a049;
 }
 
-/* Cancel Button */
+
 .cancel-btn {
-  background-color: #888; /* Grey color */
+  background-color: #888;
   color: #fff;
 }
 
 .cancel-btn:hover {
-  background-color: #666; /* Darker grey */
+  background-color: #666; 
 }
 
-/* Like Button (for guests) */
 .like-btn {
-  background-color: #008f8a;
+  background-color: #008f8a; 
   color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .like-btn:hover {
-  background-color: #006f6f;
+  background-color: #006f6f; 
 }
 
-/* Styling for input fields in the edit form */
+#likeStatus {
+  color: #00ffee;
+}
+
+
+
 input[type="text"] {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
-  background-color: #333; /* Dark background */
+  background-color: #333; 
   color: #fff;
-  border: 1px solid #444; /* Border color */
+  border: 1px solid #444; 
   border-radius: 5px;
   font-size: 1rem;
 }
 
 input[type="text"]:focus {
   outline: none;
-  border: 1px solid #00ffee; /* Highlight border color on focus */
-  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); /* Subtle glow effect */
+  border: 1px solid #00ffee; 
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); 
 }
 
 input[type="text"]::placeholder {
-  color: #aaa; /* Light grey placeholder text */
+  color: #aaa; 
 }
 
-/* Add this to your CSS file for consistent button styling */
+
 
 .delete-btn {
-  background-color: #ff4d4d;  /* Red color */
+  background-color: #ff4d4d;  
   color: white;
   border: none;
   padding: 10px 20px;
@@ -187,7 +197,7 @@ input[type="text"]::placeholder {
 }
 
 .delete-btn:hover {
-  background-color: #e60000;  /* Darker red when hovered */
+  background-color: #e60000;  
 }
 
 .theme-delete-container {

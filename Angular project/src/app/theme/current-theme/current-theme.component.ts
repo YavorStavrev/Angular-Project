@@ -5,9 +5,8 @@ import { Theme } from '../../types/theme';
 import { UserService } from '../../user/user.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../../types/user';
+import { User, UserForAuth } from '../../types/user';
 @Component({
   selector: 'app-current-theme',
   standalone: true,
@@ -17,10 +16,12 @@ import { User } from '../../types/user';
 })
 export class CurrentThemeComponent implements OnInit {
   theme = {} as Theme;
+  user: UserForAuth | null = null;
+
   workoutArray: { exercise: string; sets: string }[] = [];
-  // isOwner = false; // Initialize as false
+  isOwner = false;
   isEditMode = false;
-  selectedWorkoutIndex: number | null = null; // Track which workout is being edited
+  selectedWorkoutIndex: number | null = null;
 
   workoutForm!: FormGroup;
 
@@ -28,51 +29,84 @@ export class CurrentThemeComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private userService: UserService,
-    private cdr: ChangeDetectorRef,
-    private router: Router // Add Router here
+    private router: Router
   ) { }
+
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
 
   ngOnInit(): void {
+    this.userService.user$.subscribe(i => {
+      this.user = i;
+
+    }
+    )
     const id = this.route.snapshot.params['themeId'];
-  
-    console.log('Logged-in User from UserService:', this.userService.user); // Log user details
-    
+
+
+
     this.apiService.getSingleTheme(id).subscribe(
       (theme) => {
         this.theme = theme;
-  
-        console.log('Fetched theme:', this.theme); // Log the full theme object to check userId._id
-        
+
         if (this.theme.workout && Array.isArray(this.theme.workout)) {
           this.workoutArray = this.theme.workout;
         }
-  
-        console.log('Logged-in user ID:', this.userService.user?.id);  // Use `id` instead of `_id`
-        console.log('Theme owner ID:', this.theme.userId);  // Theme owner's ID
-        // if(this.theme.userId === this.userService.user?._id){
-        //   this.isOwner
-        // }
-        // // Compare user IDs to set isOwner flag
-       
-        // console.log('Is Owner:', this.isOwner);  // Should log true/false based on ownership
-  
-        // this.cdr.detectChanges();
+
+        if (this.theme.userId === this.user?._id) {
+          this.isOwner = true;
+        }
+
       },
       (error) => {
         console.error('Error fetching theme:', error);
       }
     );
   }
+
+
+
+
+
+  hasLikedPost(): boolean {
+    const userId = this.user?._id || '';
+    return this.theme.likes.includes(userId);
+  }
+
+
+  handleLikePost(): void {
+    if (!this.isLoggedIn || this.isOwner || this.hasLikedPost()) {
+      return; 
+    }
+
+    const themeId = this.theme._id;
+    this.apiService.likeTheme(themeId).subscribe(
+      (updatedTheme) => {
+        this.theme = updatedTheme; 
+        this.toggleLikeButton();  
+      },
+      (error) => {
+        console.error('Error liking the post:', error);
+      }
+    );
+  }
+
   
-  
-  
-  
-  
-  
+  toggleLikeButton(): void {
+    
+    if (this.hasLikedPost()) {
+      document.getElementById('likeButton')?.setAttribute('style', 'display:none');
+      document.getElementById('likeStatus')?.setAttribute('style', 'display:inline');
+    } else {
+      document.getElementById('likeButton')?.setAttribute('style', 'display:inline');
+      document.getElementById('likeStatus')?.setAttribute('style', 'display:none');
+    }
+  }
+
+
+
 
 
   goBack(): void {
@@ -81,7 +115,7 @@ export class CurrentThemeComponent implements OnInit {
 
 
   toggleEditMode(index: number) {
-    // Toggle edit mode for specific workout
+    
     this.isEditMode = !this.isEditMode;
     this.selectedWorkoutIndex = index;
     const workout = this.workoutArray[index];
@@ -97,12 +131,12 @@ export class CurrentThemeComponent implements OnInit {
     }
 
     const updatedWorkout = this.workoutForm.value;
-    this.workoutArray[index] = updatedWorkout; // Update the workout in the array
+    this.workoutArray[index] = updatedWorkout; 
 
     const themeId = this.theme._id;
     this.apiService.updateThemeWorkout(themeId, this.workoutArray).subscribe(
       (updatedTheme) => {
-        this.theme = updatedTheme; // Update theme with updated workout
+        this.theme = updatedTheme; 
         this.isEditMode = false;
         this.selectedWorkoutIndex = null;
       },
@@ -115,7 +149,7 @@ export class CurrentThemeComponent implements OnInit {
   handleDeleteWorkout(index: number) {
     const themeId = this.theme._id;
     if (confirm('Are you sure you want to delete this workout?')) {
-      this.workoutArray.splice(index, 1); // Remove workout from the array
+      this.workoutArray.splice(index, 1); 
       this.apiService.updateThemeWorkout(themeId, this.workoutArray).subscribe(
         () => {
           console.log('Workout deleted');

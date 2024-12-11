@@ -1,4 +1,4 @@
-.wrapper {
+.container {
   min-width: 200px;
   min-height: 200px;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.loader {
+.loader-item {
   width: 48px;
   height: 48px;
   border: 5px solid #234465;

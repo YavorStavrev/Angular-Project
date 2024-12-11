@@ -13,37 +13,39 @@ import { Theme } from '../../types/theme';
   styleUrls: ['./add-theme.component.css'],
 })
 export class AddThemeComponent {
-  // Initialize workout as an empty array
+  theme = {} as Theme;
+
   workout: { exercise: string; sets: string }[] = [];
 
   constructor(private apiService: ApiService, private router: Router) {}
   
 
-  // Add an additional exercise/sets input pair
+  
   addExercise() {
     this.workout.push({ exercise: '', sets: '' });
    
   }
 
-  // Remove a workout input pair
+
   removeExercise(index: number) {
     this.workout.splice(index, 1);
     
   }
 
-  // Submit the form data
+
   addTheme(form: NgForm) {
     if (form.invalid) {
       return;
     }
 
-    // Directly pass the workout array (no need for an additional loop)
+
     const { themeName, postText } = form.value;
-    const workout = this.workout;  // This is already the correct workout array
+    this.theme.description = postText;
+    const workout = this.workout;  
 
     console.log('Workout:', workout);
 
-    // Call the API to create the theme
+
     this.apiService.createTheme(themeName, postText, workout).subscribe(() => {
       this.router.navigate(['/themes']);
     });
@@ -51,30 +53,5 @@ export class AddThemeComponent {
 }
 
 
-// export class CreateComponent {
 
-//   workout = [{ exercise: '', sets: '' }]; // Initialize the workout array
-
-//   constructor(private apiService: ApiService, private router: Router) {}
-
-//   addPost(form: NgForm) {
-//     if (form.invalid) {
-//       return;
-//     }
-
-//     const { postName, postText } = form.value;
-//     console.log(form.value);
-    
-//     // Transform workout data
-//     const formattedWorkout = {
-//       exercise: this.workout.map(entry => entry.exercise),
-//       sets: this.workout.map(entry => entry.sets)
-//     };
-
-//     // Call the API with the correct data
-//     this.apiService.createPost(postName, postText, formattedWorkout).subscribe(() => {
-//       this.router.navigate(['/catalog']);
-//     });
-//   }
-// }
 

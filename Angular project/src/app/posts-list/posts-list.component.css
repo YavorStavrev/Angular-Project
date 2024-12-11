@@ -2,48 +2,80 @@ aside {
   width: 100%;
   margin-top: 1em;
   font-size: 0.8em;
+  background-color: rgba(240, 240, 240, 0.9); 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+  border-radius: 0.5em;
 }
 
-.aside * {
+.recent-posts-container * {
   margin: 0;
   padding: 0;
 }
 
-.aside > div {
-  border: 1px solid #999;
-  border-radius: 0.3em;
-  padding: 0.3em 0.5em;
+.recent-posts-container {
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  border-radius: 0.5em;
+  padding: 0.8em;
+  background-color: rgba(230, 230, 230, 0.9); 
 }
 
-.title {
-  font-size: 1.5em;
-  border-bottom: none;
+.recent-posts-title {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: black;
+  border-bottom: 2px solid aquamarine; 
+  padding-bottom: 0.2em;
 }
 
-.aside .aside-theme {
+.posts-list {
+  margin-top: 1rem;
+}
+
+.post-card {
   margin: 1rem 0;
-  padding: 0.5rem 0;
+  padding: 1rem;
+  background: linear-gradient(90deg, rgba(127, 255, 212, 0.2), rgba(0, 0, 0, 0.05)); 
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, background-color 0.3s ease; 
 }
 
-.aside h3 {
-  border-bottom: none;
-  border-radius: 0.3rem;
-  font-size: 1.2rem;
-  background-color: #306085;
+.post-card:hover {
+  transform: scale(1.03); 
+  background-color: rgba(127, 255, 212, 0.4); 
+}
+
+.post-title {
+  font-size: 1.4rem;
+  color: black;
   padding-left: 0.5rem;
-  color: white;
-  text-shadow: 1px 1px rgb(43, 42, 42);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: aquamarine; 
+  border-radius: 0.3rem;
 }
 
-.aside-theme + .aside-theme {
-  border-top: dashed 1px #999;
+.post-card + .post-card {
+  border-top: 1px solid rgba(0, 0, 0, 0.1); 
 }
 
-.aside-theme p {
+.post-author {
   text-align: right;
+  font-size: 0.9em;
+  color: black;
 }
 
-.aside-theme a {
+.post-time {
+  text-align: right;
+  font-size: 0.8em;
+  color: grey;
+}
+
+.post-link {
   text-decoration: none;
   color: inherit;
+  font-weight: bold;
+}
+
+.post-link:hover {
+  color: aquamarine; 
 }
