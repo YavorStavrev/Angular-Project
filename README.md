@@ -84,12 +84,4 @@ Once you’ve signed up, you can access your account to manage personal informat
 
 ---
 
-## Contact Us
-Have questions or need support? We’re here to help!
-
-- **Support Email**: support@fitnessandhealth.com
-- **Contact Form**: Reach out directly through our contact form available on the website.
-  
----
-
 Thank you for choosing **Fitness and Health** as your fitness companion. We’re excited to be a part of your journey to a healthier lifestyle!
